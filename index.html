@@ -1274,4 +1274,289 @@ async function switchPeriod(sym, period, btnEl) {
     return dt.toLocaleDateString('en-GB',{month:'short',day:'numeric'});
   });
 
-  G.chartInst = new Chart(canvas.ge
+G.chartInst = new Chart(canvas.getContext('2d'), {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: sym,
+        data: d.c,
+        borderColor: color,
+        borderWidth: 1.5,
+        pointRadius: 0,
+        pointHoverRadius: 4,
+        fill: false,
+        tension: 0.05
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { display: false }, ticks: { color: '#454D6A', font: { size: 10, family: 'JetBrains Mono' } } },
+        y: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: '#454D6A', font: { size: 10, family: 'JetBrains Mono' } } }
+      }
+    }
+  });
+}
+
+/* ════════════════════════════════════════════════════════════════
+   MODAL ACTIONS & NAVIGATION
+════════════════════════════════════════════════════════════════ */
+function open$(id) {
+  const el = document.getElementById(id);
+  if (el) el.classList.add('open');
+}
+
+function close$(id) {
+  const el = document.getElementById(id);
+  if (el) el.classList.remove('open');
+}
+
+function saveKey() {
+  const key = document.getElementById('apiKeyInput').value.trim();
+  if (key) {
+    G.key = key;
+    localStorage.setItem('cp_key', key);
+    close$('apiOverlay');
+    updateApiStatus();
+    refreshAll();
+  }
+}
+
+function updateApiStatus() {
+  const dot = document.getElementById('api-dot');
+  const lbl = document.getElementById('api-lbl');
+  if (G.key) {
+    dot.style.background = 'var(--green)';
+    lbl.textContent = 'Finnhub Connected';
+  } else {
+    dot.style.background = 'var(--t3)';
+    lbl.textContent = 'Not connected';
+  }
+}
+
+function openAlertModal(sym) {
+  G.alertSym = sym;
+  document.getElementById('alertModalTitle').textContent = `Set alert for ${sym.split('.')[0]}`;
+  open$('alertOverlay');
+}
+
+function saveAlert() {
+  const cond = document.getElementById('al-cond').value;
+  const val = parseFloat(document.getElementById('al-val').value);
+  if (!isNaN(val) && G.alertSym) {
+    G.alerts.push({ id: Date.now(), sym: G.alertSym, cond, val, active: true });
+    persist();
+    close$('alertOverlay');
+    if (G.activeSym === G.alertSym) openCockpit(G.activeSym, false);
+    showToast(`Alert set for ${G.alertSym}`);
+  }
+}
+
+function removeAlert(id, sym) {
+  G.alerts = G.alerts.filter(a => a.id !== id);
+  persist();
+  if (G.activeSym === sym) openCockpit(G.activeSym, false);
+}
+
+function renderAlertChips(sym) {
+  const alerts = G.alerts.filter(a => a.sym === sym);
+  if (!alerts.length) return '<span style="font-size:11px;color:var(--t3);font-style:italic;">None</span>';
+  return alerts.map(a => {
+    const lbl = a.cond === 'above' ? `>${a.val}` : a.cond === 'below' ? `<${a.val}` : a.cond === 'pct_up' ? `+${a.val}%` : `-${a.val}%`;
+    return `<span class="tag tag-type" style="display:inline-flex;align-items:center;gap:4px;cursor:pointer;" onclick="removeAlert(${a.id},'${sym}')">${lbl} ✕</span>`;
+  }).join('');
+}
+
+/* ════════════════════════════════════════════════════════════════
+   PORTFOLIO ENGINE & TRADING
+════════════════════════════════════════════════════════════════ */
+function setTT(type) {
+  G.tradeType = type;
+  document.getElementById('tbuy').className = 'btn btn-sm' + (type === 'BUY' ? ' btn-blue' : '');
+  document.getElementById('tsell').className = 'btn btn-sm' + (type === 'SELL' ? ' btn-blue' : '');
+}
+
+function logTrade() {
+  const sym = document.getElementById('tr-sym').value.toUpperCase().trim();
+  const shares = parseFloat(document.getElementById('tr-sh').value);
+  const price = parseFloat(document.getElementById('tr-px').value);
+  const date = document.getElementById('tr-dt').value || today();
+
+  if (!sym || isNaN(shares) || isNaN(price)) { showToast('Invalid trade details'); return; }
+
+  G.trades.push({ sym, type: G.tradeType, shares, price, date });
+  if (G.tradeType === 'BUY' && !G.portfolio.includes(sym)) G.portfolio.push(sym);
+  
+  persist();
+  close$('tradeOverlay');
+  awardXP(50, 'Logged a transaction');
+  refreshAll();
+}
+
+function moveToPortfolio(sym) {
+  G.watchlist = G.watchlist.filter(s => s !== sym);
+  if (!G.portfolio.includes(sym)) G.portfolio.push(sym);
+  persist();
+  refreshAll();
+}
+
+function removeSym(sym) {
+  G.portfolio = G.portfolio.filter(s => s !== sym);
+  G.watchlist = G.watchlist.filter(s => s !== sym);
+  persist();
+  G.activeSym = null;
+  document.getElementById('mainPanel').innerHTML = `
+    <div class="welcome" id="welcomeScreen">
+      <div style="font-size:48px;margin-bottom:16px;">📡</div>
+      <div class="welcome-title">Removed ${sym}</div>
+      <div class="welcome-sub">Select another stock from the rail or enter a new ticker template.</div>
+    </div>`;
+  refreshAll();
+}
+
+function confirmAdd() {
+  const sym = document.getElementById('addInput').value.toUpperCase().trim();
+  const target = document.getElementById('addAs').value;
+  if (!sym) return;
+
+  if (target === 'portfolio') {
+    if (!G.portfolio.includes(sym)) G.portfolio.push(sym);
+  } else {
+    if (!G.watchlist.includes(sym)) G.watchlist.push(sym);
+  }
+  
+  persist();
+  close$('addOverlay');
+  document.getElementById('addInput').value = '';
+  refreshAll();
+  openCockpit(sym);
+}
+
+function calcPositions() {
+  const map = {};
+  G.trades.forEach(t => {
+    if (!map[t.sym]) map[t.sym] = { shares: 0, costBasis: 0 };
+    if (t.type === 'BUY') {
+      map[t.sym].shares += t.shares;
+      map[t.sym].costBasis += (t.shares * t.price);
+    } else {
+      map[t.sym].shares -= t.shares;
+      map[t.sym].costBasis -= (t.shares * t.price);
+    }
+  });
+
+  const list = [];
+  for (const sym in map) {
+    if (map[sym].shares > 0) {
+      const q = G.quotes[sym] || {};
+      const currPrice = q.c || 0;
+      const mktVal = map[sym].shares * currPrice;
+      const pnl = mktVal - map[sym].costBasis;
+      const pnlPct = map[sym].costBasis > 0 ? (pnl / map[sym].costBasis) * 100 : 0;
+      list.push({ sym, shares: map[sym].shares, costBasis: map[sym].costBasis, mktVal, pnl, pnlPct });
+    }
+  }
+  return list;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   FORMATTERS & ALERTS UTILS
+════════════════════════════════════════════════════════════════ */
+function checkAlerts() {
+  G.alerts.forEach(a => {
+    if (!a.active) return;
+    const q = G.quotes[a.sym];
+    if (!q || !q.c) return;
+    let hit = false;
+    if (a.cond === 'above' && q.c > a.val) hit = true;
+    if (a.cond === 'below' && q.c < a.val) hit = true;
+    if (a.cond === 'pct_up' && q.dp > a.val) hit = true;
+    if (a.cond === 'pct_dn' && q.dp < -a.val) hit = true;
+
+    if (hit) {
+      showToast(`🚨 ALERT TRIGGERED: ${a.sym} matching ${a.cond} (${q.c})!`);
+      a.active = false;
+    }
+  });
+  persist();
+}
+
+function rateRatio(v, rules) {
+  if (!v) return '';
+  if (v < rules[0]) return 'good';
+  if (v < rules[2]) return 'warn';
+  return 'bad';
+}
+
+function calcBarPct(curr, low, high) {
+  if (!curr || !low || !high || high === low) return 50;
+  let p = ((curr - low) / (high - low)) * 100;
+  return Math.min(Math.max(p, 0), 100);
+}
+
+function fmt(v) { return typeof v === 'number' ? v.toFixed(2) : '—'; }
+function fmtPct(v) { return typeof v === 'number' ? `${v >= 0 ? '+' : ''}${v.toFixed(2)}%` : '—'; }
+function fmtVol(v) { return v ? (v >= 1e6 ? (v / 1e6).toFixed(1) + 'M' : v.toLocaleString()) : '—'; }
+function fmtB(v) { return v ? (v >= 1e3 ? (v / 1e3).toFixed(2) + 'B' : v.toFixed(1) + 'M') : '—'; }
+function today() { return new Date().toISOString().split('T')[0]; }
+function daysAgo(n) { return new Date(Date.now() - n * 86400000).toISOString().split('T')[0]; }
+function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+function timeAgo(ts) {
+  const diff = Date.now() - ts;
+  const hours = Math.floor(diff / 3600000);
+  if (hours < 1) return 'Just now';
+  if (hours < 24) return `${hours}h ago`;
+  return `${Math.floor(hours / 24)}d ago`;
+}
+
+function showToast(msg) {
+  const container = document.getElementById('toasts');
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.textContent = msg;
+  container.appendChild(t);
+  setTimeout(() => t.remove(), 4000);
+}
+
+function awardXP(amt, msg) {
+  G.score += amt;
+  const el = document.getElementById('scoreVal');
+  if (el) el.textContent = G.score;
+  localStorage.setItem('cp_score', G.score);
+  
+  const toast = document.createElement('div');
+  toast.className = 'xp-toast';
+  toast.innerHTML = `<span>⚡</span> +${amt} XP: ${msg}`;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 3000);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   INIT ENGINE
+════════════════════════════════════════════════════════════════ */
+window.addEventListener('DOMContentLoaded', () => {
+  setTT('BUY');
+  updateApiStatus();
+  renderRail();
+  renderPfMini();
+  
+  const savedKey = localStorage.getItem('cp_key');
+  if (savedKey) {
+    G.key = savedKey;
+    document.getElementById('apiKeyInput').value = savedKey;
+    updateApiStatus();
+    refreshAll();
+  }
+  
+  // Continuous engine tracking loop
+  G.refreshTimer = setInterval(() => {
+    if (G.key) { checkAlerts(); }
+  }, 60000);
+});
+</script>
+</body>
+</html>
