@@ -1,0 +1,127 @@
+{
+  "currency": "EUR",
+  "created": "2026-11-25T20:26:02",
+  "cash": 2000.0,
+  "deposits": [
+    {
+      "date": "2026-11-25T20:26:02",
+      "amount": 2000.0,
+      "bench_price": 122.23999786376952
+    }
+  ],
+  "positions": {},
+  "transactions": [
+    {
+      "date": "2026-11-25T20:26:02",
+      "type": "DEPOSIT",
+      "amount_eur": 2000.0
+    }
+  ],
+  "proposals": [
+    {
+      "id": "P001",
+      "date": "2026-11-25T20:26:02",
+      "status": "pending",
+      "action": "BUY",
+      "ticker": "UCG.MI",
+      "name": "UniCredit",
+      "isin": "IT0005239360",
+      "sector": "Financial Services",
+      "amount_eur": 275.0,
+      "price_eur": 73.21,
+      "verdict": "STRONG BUY",
+      "score": 0.39,
+      "conviction": "High",
+      "discussion": "discussions/2026-11-25/UCG_MI.md"
+    },
+    {
+      "id": "P002",
+      "date": "2026-11-25T20:26:02",
+      "status": "pending",
+      "action": "BUY",
+      "ticker": "CVX",
+      "name": "Chevron",
+      "isin": "US1667641005",
+      "sector": "Energy",
+      "amount_eur": 360.0,
+      "price_eur": 192.6101,
+      "verdict": "STRONG BUY",
+      "score": 0.354,
+      "conviction": "High",
+      "discussion": "discussions/2026-11-25/CVX.md"
+    },
+    {
+      "id": "P003",
+      "date": "2026-11-25T20:26:02",
+      "status": "pending",
+      "action": "BUY",
+      "ticker": "TSM",
+      "name": "Taiwan Semiconductor (ADR)",
+      "isin": "US8740391003",
+      "sector": "Technology",
+      "amount_eur": 145.0,
+      "price_eur": 310.5146,
+      "verdict": "BUY",
+      "score": 0.278,
+      "conviction": "Medium",
+      "discussion": "discussions/2026-11-25/TSM.md"
+    },
+    {
+      "id": "P004",
+      "date": "2026-11-25T20:26:02",
+      "status": "pending",
+      "action": "BUY",
+      "ticker": "ADS.DE",
+      "name": "Adidas",
+      "isin": "DE000A1EWWW0",
+      "sector": "Consumer Cyclical",
+      "amount_eur": 205.0,
+      "price_eur": 170.45,
+      "verdict": "BUY",
+      "score": 0.266,
+      "conviction": "Medium",
+      "discussion": "discussions/2026-11-25/ADS_DE.md"
+    },
+    {
+      "id": "P005",
+      "date": "2026-11-25T20:26:02",
+      "status": "pending",
+      "action": "BUY",
+      "ticker": "META",
+      "name": "Meta Platforms",
+      "isin": "US30303M1027",
+      "sector": "Communication Services",
+      "amount_eur": 155.0,
+      "price_eur": 550.8401,
+      "verdict": "BUY",
+      "score": 0.239,
+      "conviction": "Medium",
+      "discussion": "discussions/2026-11-25/META.md"
+    },
+    {
+      "id": "P006",
+      "date": "2026-11-25T20:26:02",
+      "status": "pending",
+      "action": "BUY",
+      "ticker": "ABBV",
+      "name": "AbbVie",
+      "isin": "US00287Y1091",
+      "sector": "Healthcare",
+      "amount_eur": 265.0,
+      "price_eur": 267.9076,
+      "verdict": "BUY",
+      "score": 0.239,
+      "conviction": "Medium",
+      "discussion": "discussions/2026-11-25/ABBV.md"
+    }
+  ],
+  "snapshots": [
+    {
+      "date": "2026-11-25",
+      "value": 2000.0,
+      "cash": 2000.0,
+      "invested": 2000.0,
+      "bench_value": 2000.0
+    }
+  ]
+}
