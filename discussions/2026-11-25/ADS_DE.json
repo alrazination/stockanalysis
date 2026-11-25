@@ -3,8 +3,8 @@
  "ticker": "ADS.DE",
  "name": "Adidas",
  "sector": "Consumer Cyclical",
- "verdict": "BUY",
- "score": 0.266,
+ "verdict": "HOLD",
+ "score": 0.261,
  "conviction": "Medium",
  "price_eur": 170.45,
  "max_weight": 0.137,
@@ -128,7 +128,7 @@
   {
    "role": "Risk Manager",
    "persona": "Rita",
-   "score": -0.025,
+   "score": -0.075,
    "stance": "Neutral",
    "coverage": 1.0,
    "points": [
@@ -145,8 +145,8 @@
      "weight": 0.0
     },
     {
-     "text": "No exposure to Consumer Cyclical yet — this would diversify the portfolio.",
-     "weight": 0.2
+     "text": "The portfolio holds 10% in Consumer Cyclical.",
+     "weight": 0.0
     }
    ]
   }
@@ -174,7 +174,8 @@
   "Every order costs a €1 fee, like on Trade Republic. Stop-loss rule: review at -15% from cost."
  ],
  "chair": [
-  "Weighted committee score is +0.27 on a scale of -1 to +1; 4 of 5 analysts lean the same way. Conviction: Medium.",
-  "Decision: BUY. We propose a position of up to 14% of the portfolio."
+  "Weighted committee score is +0.26 on a scale of -1 to +1; 4 of 5 analysts lean the same way. Conviction: Medium.",
+  "We own 1.2027 shares at an average cost of €171.28; position is -0.5%.",
+  "The thesis is intact. We keep holding."
  ]
 }

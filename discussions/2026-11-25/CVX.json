@@ -3,11 +3,11 @@
  "ticker": "CVX",
  "name": "Chevron",
  "sector": "Energy",
- "verdict": "STRONG BUY",
- "score": 0.354,
- "conviction": "High",
- "price_eur": 192.6101,
- "max_weight": 0.181,
+ "verdict": "HOLD",
+ "score": 0.349,
+ "conviction": "Medium",
+ "price_eur": 192.5145,
+ "max_weight": 0.12,
  "opinions": [
   {
    "role": "Fundamental Analyst",
@@ -91,7 +91,7 @@
      "weight": -0.05
     },
     {
-     "text": "It is 9.4% below its 52-week high.",
+     "text": "It is 9.5% below its 52-week high.",
      "weight": 0.0
     }
    ]
@@ -108,7 +108,7 @@
      "weight": 0.6
     },
     {
-     "text": "The average analyst price target implies 14.2% upside.",
+     "text": "The average analyst price target implies 14.3% upside.",
      "weight": 0.3
     },
     {
@@ -124,8 +124,8 @@
   {
    "role": "Risk Manager",
    "persona": "Rita",
-   "score": 0.125,
-   "stance": "Mildly bullish",
+   "score": 0.075,
+   "stance": "Neutral",
    "coverage": 1.0,
    "points": [
     {
@@ -141,8 +141,8 @@
      "weight": 0.2
     },
     {
-     "text": "No exposure to Energy yet — this would diversify the portfolio.",
-     "weight": 0.2
+     "text": "The portfolio holds 18% in Energy.",
+     "weight": 0.0
     }
    ]
   }
@@ -166,11 +166,12 @@
   }
  ],
  "risk": [
-  "Maximum position size: 18% of the portfolio (scaled for 25% volatility).",
+  "Maximum position size: 12% of the portfolio (scaled for 25% volatility).",
   "Every order costs a €1 fee, like on Trade Republic. Stop-loss rule: review at -15% from cost."
  ],
  "chair": [
-  "Weighted committee score is +0.35 on a scale of -1 to +1; 5 of 5 analysts lean the same way. Conviction: High.",
-  "Decision: STRONG BUY. We propose a position of up to 18% of the portfolio."
+  "Weighted committee score is +0.35 on a scale of -1 to +1; 5 of 5 analysts lean the same way. Conviction: Medium.",
+  "We own 1.8700 shares at an average cost of €193.04; position is -0.3%.",
+  "The thesis is intact. We keep holding."
  ]
 }

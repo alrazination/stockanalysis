@@ -3,10 +3,10 @@
  "ticker": "TSM",
  "name": "Taiwan Semiconductor (ADR)",
  "sector": "Technology",
- "verdict": "BUY",
- "score": 0.278,
+ "verdict": "HOLD",
+ "score": 0.259,
  "conviction": "Medium",
- "price_eur": 310.5146,
+ "price_eur": 309.3672,
  "max_weight": 0.098,
  "opinions": [
   {
@@ -62,12 +62,12 @@
   {
    "role": "Technical Analyst",
    "persona": "Tara",
-   "score": -0.16,
+   "score": -0.22,
    "stance": "Mildly bearish",
    "coverage": 1.0,
    "points": [
     {
-     "text": "Price is 15.2% below its 200-day average: the long-term trend is down.",
+     "text": "Price is 15.5% below its 200-day average: the long-term trend is down.",
      "weight": -0.7
     },
     {
@@ -75,7 +75,7 @@
      "weight": 0.4
     },
     {
-     "text": "RSI(14) is 39: sellers in control.",
+     "text": "RSI(14) is 38: sellers in control.",
      "weight": -0.2
     },
     {
@@ -83,8 +83,8 @@
      "weight": -0.3
     },
     {
-     "text": "It is 29.8% below its 52-week high.",
-     "weight": 0.0
+     "text": "It is 30.1% below its 52-week high.",
+     "weight": -0.3
     }
    ]
   },
@@ -100,15 +100,15 @@
      "weight": 0.6
     },
     {
-     "text": "The average analyst price target implies 72.1% upside.",
+     "text": "The average analyst price target implies 72.7% upside.",
      "weight": 0.6
     },
     {
-     "text": "Over 6 months it returned -19.3% versus -1.7% for the MSCI World benchmark.",
+     "text": "Over 6 months it returned -19.6% versus -1.7% for the MSCI World benchmark.",
      "weight": -0.5
     },
     {
-     "text": "It fell 21.9% in the last month.",
+     "text": "It fell 22.2% in the last month.",
      "weight": -0.2
     }
    ]
@@ -116,8 +116,8 @@
   {
    "role": "Risk Manager",
    "persona": "Rita",
-   "score": -0.225,
-   "stance": "Mildly bearish",
+   "score": -0.275,
+   "stance": "Bearish",
    "coverage": 1.0,
    "points": [
     {
@@ -133,8 +133,8 @@
      "weight": 0.0
     },
     {
-     "text": "No exposure to Technology yet — this would diversify the portfolio.",
-     "weight": 0.2
+     "text": "The portfolio holds 7% in Technology.",
+     "weight": 0.0
     }
    ]
   }
@@ -146,7 +146,7 @@
   },
   {
    "who": "Bea (Bear)",
-   "said": "I'm not convinced. Price is 15.2% below its 200-day average: the long-term trend is down. Annualised volatility is 46%. Over 6 months it returned -19.3% versus -1.7% for the MSCI World benchmark."
+   "said": "I'm not convinced. Price is 15.5% below its 200-day average: the long-term trend is down. Annualised volatility is 46%. Over 6 months it returned -19.6% versus -1.7% for the MSCI World benchmark."
   },
   {
    "who": "Ben (Bull), rebuttal",
@@ -162,7 +162,8 @@
   "Every order costs a €1 fee, like on Trade Republic. Stop-loss rule: review at -15% from cost."
  ],
  "chair": [
-  "Weighted committee score is +0.28 on a scale of -1 to +1; 3 of 5 analysts lean the same way. Conviction: Medium.",
-  "Decision: BUY. We propose a position of up to 10% of the portfolio."
+  "Weighted committee score is +0.26 on a scale of -1 to +1; 3 of 5 analysts lean the same way. Conviction: Medium.",
+  "We own 0.4687 shares at an average cost of €311.52; position is -0.7%.",
+  "The thesis is intact. We keep holding."
  ]
 }

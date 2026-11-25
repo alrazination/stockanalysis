@@ -2,9 +2,9 @@
 
 *2026-11-25* · ISIN `US00287Y1091` · Healthcare / Drug Manufacturers - General
 
-**Price:** 294.21 USD (≈ €267.91) · **Market cap:** €473.6bn
+**Price:** 294.41 USD (≈ €268.09) · **Market cap:** €473.6bn
 
-> **Verdict: BUY** · score +0.24 · conviction Medium
+> **Verdict: HOLD** · score +0.23 · conviction Medium
 
 ## Round 1 — Opening statements
 
@@ -25,7 +25,7 @@
 
 ### Tara, Technical Analyst — Mildly bullish (+0.19)
 
-- 🟢 Price is 22.0% above its 200-day average: a strong uptrend, though stretched.
+- 🟢 Price is 22.1% above its 200-day average: a strong uptrend, though stretched.
 - 🟢 The 50-day average is above the 200-day average (bullish alignment).
 - ⚪ RSI(14) is 57: neutral.
 - 🔴 MACD is negative but improving.
@@ -34,16 +34,16 @@
 ### Sam, Sentiment & Momentum Analyst — Bullish (+0.28)
 
 - 🟢 26 Wall Street analysts rate it 1.7/5 on average (buy).
-- ⚪ The average analyst price target implies 7.4% upside.
-- 🟢 Over 6 months it returned +36.4% versus -1.7% for the MSCI World benchmark.
-- ⚪ Last month: +2.7%.
+- ⚪ The average analyst price target implies 7.3% upside.
+- 🟢 Over 6 months it returned +36.5% versus -1.7% for the MSCI World benchmark.
+- ⚪ Last month: +2.8%.
 
-### Rita, Risk Manager — Mildly bullish (+0.12)
+### Rita, Risk Manager — Neutral (+0.08)
 
 - 🟢 Annualised volatility is 25%.
 - ⚪ Worst peak-to-trough fall in the past year: 15.7%.
 - 🟢 Beta of 0.19: defensive, moves less than the market.
-- 🟢 No exposure to Healthcare yet — this would diversify the portfolio.
+- ⚪ The portfolio holds 13% in Healthcare.
 
 ## Round 2 — Bull vs. Bear
 
@@ -57,12 +57,14 @@
 
 ## Round 3 — Risk review
 
-**Rita (Risk Manager):** Maximum position size: 18% of the portfolio (scaled for 25% volatility).
+**Rita (Risk Manager):** Maximum position size: 17% of the portfolio (scaled for 25% volatility).
 
 **Rita (Risk Manager):** Every order costs a €1 fee, like on Trade Republic. Stop-loss rule: review at -15% from cost.
 
 ## Round 4 — Chair's verdict
 
-**Clara (Chair):** Weighted committee score is +0.24 on a scale of -1 to +1; 5 of 5 analysts lean the same way. Conviction: Medium.
+**Clara (Chair):** Weighted committee score is +0.23 on a scale of -1 to +1; 5 of 5 analysts lean the same way. Conviction: Medium.
 
-**Clara (Chair):** Decision: BUY. We propose a position of up to 18% of the portfolio.
+**Clara (Chair):** We own 0.9885 shares at an average cost of €269.10; position is -0.4%.
+
+**Clara (Chair):** The thesis is intact. We keep holding.

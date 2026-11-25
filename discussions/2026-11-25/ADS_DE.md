@@ -4,7 +4,7 @@
 
 **Price:** 170.45 EUR (≈ €170.45) · **Market cap:** €28.8bn
 
-> **Verdict: BUY** · score +0.27 · conviction Medium
+> **Verdict: HOLD** · score +0.26 · conviction Medium
 
 ## Round 1 — Opening statements
 
@@ -40,12 +40,12 @@
 - 🟢 Over 6 months it returned +2.2% versus -1.7% for the MSCI World benchmark.
 - ⚪ Last month: +8.3%.
 
-### Rita, Risk Manager — Neutral (-0.02)
+### Rita, Risk Manager — Neutral (-0.07)
 
 - 🔴 Annualised volatility is 33%.
 - ⚪ Worst peak-to-trough fall in the past year: 24.5%.
 - ⚪ Beta of 1.13: moves roughly with the market.
-- 🟢 No exposure to Consumer Cyclical yet — this would diversify the portfolio.
+- ⚪ The portfolio holds 10% in Consumer Cyclical.
 
 ## Round 2 — Bull vs. Bear
 
@@ -65,6 +65,8 @@
 
 ## Round 4 — Chair's verdict
 
-**Clara (Chair):** Weighted committee score is +0.27 on a scale of -1 to +1; 4 of 5 analysts lean the same way. Conviction: Medium.
+**Clara (Chair):** Weighted committee score is +0.26 on a scale of -1 to +1; 4 of 5 analysts lean the same way. Conviction: Medium.
 
-**Clara (Chair):** Decision: BUY. We propose a position of up to 14% of the portfolio.
+**Clara (Chair):** We own 1.2027 shares at an average cost of €171.28; position is -0.5%.
+
+**Clara (Chair):** The thesis is intact. We keep holding.
