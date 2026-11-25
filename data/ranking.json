@@ -1,0 +1,730 @@
+[
+ {
+  "ticker": "UCG.MI",
+  "name": "UniCredit",
+  "sector": "Financial Services",
+  "verdict": "STRONG BUY",
+  "score": 0.39,
+  "price_eur": 73.21
+ },
+ {
+  "ticker": "CVX",
+  "name": "Chevron",
+  "sector": "Energy",
+  "verdict": "STRONG BUY",
+  "score": 0.354,
+  "price_eur": 192.6101
+ },
+ {
+  "ticker": "TTE.PA",
+  "name": "TotalEnergies",
+  "sector": "Energy",
+  "verdict": "BUY",
+  "score": 0.336,
+  "price_eur": 77.28
+ },
+ {
+  "ticker": "SHELL.AS",
+  "name": "Shell",
+  "sector": "Energy",
+  "verdict": "BUY",
+  "score": 0.331,
+  "price_eur": 42.565
+ },
+ {
+  "ticker": "TSM",
+  "name": "Taiwan Semiconductor (ADR)",
+  "sector": "Technology",
+  "verdict": "BUY",
+  "score": 0.278,
+  "price_eur": 310.5146
+ },
+ {
+  "ticker": "CBK.DE",
+  "name": "Commerzbank",
+  "sector": "Financial Services",
+  "verdict": "BUY",
+  "score": 0.268,
+  "price_eur": 34.17
+ },
+ {
+  "ticker": "ADS.DE",
+  "name": "Adidas",
+  "sector": "Consumer Cyclical",
+  "verdict": "BUY",
+  "score": 0.266,
+  "price_eur": 170.45
+ },
+ {
+  "ticker": "XOM",
+  "name": "Exxon Mobil",
+  "sector": "Energy",
+  "verdict": "BUY",
+  "score": 0.26,
+  "price_eur": 145.0039
+ },
+ {
+  "ticker": "MU",
+  "name": "Micron Technology",
+  "sector": "Technology",
+  "verdict": "BUY",
+  "score": 0.244,
+  "price_eur": 543.1546
+ },
+ {
+  "ticker": "MSFT",
+  "name": "Microsoft",
+  "sector": "Technology",
+  "verdict": "BUY",
+  "score": 0.241,
+  "price_eur": 445.6476
+ },
+ {
+  "ticker": "META",
+  "name": "Meta Platforms",
+  "sector": "Communication Services",
+  "verdict": "BUY",
+  "score": 0.239,
+  "price_eur": 550.8401
+ },
+ {
+  "ticker": "ABBV",
+  "name": "AbbVie",
+  "sector": "Healthcare",
+  "verdict": "BUY",
+  "score": 0.239,
+  "price_eur": 267.9076
+ },
+ {
+  "ticker": "SAP.DE",
+  "name": "SAP",
+  "sector": "Technology",
+  "verdict": "BUY",
+  "score": 0.236,
+  "price_eur": 189.82
+ },
+ {
+  "ticker": "GS",
+  "name": "Goldman Sachs",
+  "sector": "Financial Services",
+  "verdict": "BUY",
+  "score": 0.234,
+  "price_eur": 730.3194
+ },
+ {
+  "ticker": "CRM",
+  "name": "Salesforce",
+  "sector": "Technology",
+  "verdict": "BUY",
+  "score": 0.23,
+  "price_eur": 179.6477
+ },
+ {
+  "ticker": "V",
+  "name": "Visa",
+  "sector": "Financial Services",
+  "verdict": "BUY",
+  "score": 0.228,
+  "price_eur": 387.6605
+ },
+ {
+  "ticker": "SAN.PA",
+  "name": "Sanofi",
+  "sector": "Healthcare",
+  "verdict": "BUY",
+  "score": 0.227,
+  "price_eur": 98.16
+ },
+ {
+  "ticker": "TXN",
+  "name": "Texas Instruments",
+  "sector": "Technology",
+  "verdict": "BUY",
+  "score": 0.213,
+  "price_eur": 243.2668
+ },
+ {
+  "ticker": "MA",
+  "name": "Mastercard",
+  "sector": "Financial Services",
+  "verdict": "BUY",
+  "score": 0.211,
+  "price_eur": 602.2572
+ },
+ {
+  "ticker": "JPM",
+  "name": "JPMorgan Chase",
+  "sector": "Financial Services",
+  "verdict": "BUY",
+  "score": 0.21,
+  "price_eur": 289.127
+ },
+ {
+  "ticker": "NVDA",
+  "name": "NVIDIA",
+  "sector": "Technology",
+  "verdict": "BUY",
+  "score": 0.205,
+  "price_eur": 134.8507
+ },
+ {
+  "ticker": "ADBE",
+  "name": "Adobe",
+  "sector": "Technology",
+  "verdict": "BUY",
+  "score": 0.196,
+  "price_eur": 212.7981
+ },
+ {
+  "ticker": "NFLX",
+  "name": "Netflix",
+  "sector": "Communication Services",
+  "verdict": "BUY",
+  "score": 0.193,
+  "price_eur": 54.0031
+ },
+ {
+  "ticker": "DIS",
+  "name": "Walt Disney",
+  "sector": "Communication Services",
+  "verdict": "BUY",
+  "score": 0.192,
+  "price_eur": 114.3531
+ },
+ {
+  "ticker": "BAYN.DE",
+  "name": "Bayer",
+  "sector": "Healthcare",
+  "verdict": "BUY",
+  "score": 0.188,
+  "price_eur": 50.68
+ },
+ {
+  "ticker": "DTE.DE",
+  "name": "Deutsche Telekom",
+  "sector": "Communication Services",
+  "verdict": "BUY",
+  "score": 0.184,
+  "price_eur": 26.83
+ },
+ {
+  "ticker": "ITX.MC",
+  "name": "Inditex",
+  "sector": "Consumer Cyclical",
+  "verdict": "BUY",
+  "score": 0.171,
+  "price_eur": 57.46
+ },
+ {
+  "ticker": "ZAL.DE",
+  "name": "Zalando",
+  "sector": "Consumer Cyclical",
+  "verdict": "BUY",
+  "score": 0.167,
+  "price_eur": 28.48
+ },
+ {
+  "ticker": "UNH",
+  "name": "UnitedHealth",
+  "sector": "Healthcare",
+  "verdict": "BUY",
+  "score": 0.16,
+  "price_eur": 315.013
+ },
+ {
+  "ticker": "DBK.DE",
+  "name": "Deutsche Bank",
+  "sector": "Financial Services",
+  "verdict": "BUY",
+  "score": 0.159,
+  "price_eur": 29.07
+ },
+ {
+  "ticker": "BRK-B",
+  "name": "Berkshire Hathaway (B)",
+  "sector": "Financial Services",
+  "verdict": "BUY",
+  "score": 0.157,
+  "price_eur": 527.8946
+ },
+ {
+  "ticker": "LLY",
+  "name": "Eli Lilly",
+  "sector": "Healthcare",
+  "verdict": "BUY",
+  "score": 0.157,
+  "price_eur": 1273.5196
+ },
+ {
+  "ticker": "PFE",
+  "name": "Pfizer",
+  "sector": "Healthcare",
+  "verdict": "BUY",
+  "score": 0.157,
+  "price_eur": 25.8864
+ },
+ {
+  "ticker": "ALV.DE",
+  "name": "Allianz",
+  "sector": "Financial Services",
+  "verdict": "BUY",
+  "score": 0.152,
+  "price_eur": 453.5
+ },
+ {
+  "ticker": "MUV2.DE",
+  "name": "Munich Re",
+  "sector": "Financial Services",
+  "verdict": "HOLD",
+  "score": 0.147,
+  "price_eur": 585.0
+ },
+ {
+  "ticker": "BAC",
+  "name": "Bank of America",
+  "sector": "Financial Services",
+  "verdict": "HOLD",
+  "score": 0.145,
+  "price_eur": 44.1914
+ },
+ {
+  "ticker": "BKNG",
+  "name": "Booking Holdings",
+  "sector": "Consumer Cyclical",
+  "verdict": "HOLD",
+  "score": 0.144,
+  "price_eur": 136.0618
+ },
+ {
+  "ticker": "RHM.DE",
+  "name": "Rheinmetall",
+  "sector": "Industrials",
+  "verdict": "HOLD",
+  "score": 0.144,
+  "price_eur": 735.8
+ },
+ {
+  "ticker": "PLTR",
+  "name": "Palantir",
+  "sector": "Technology",
+  "verdict": "HOLD",
+  "score": 0.143,
+  "price_eur": 149.0652
+ },
+ {
+  "ticker": "SHOP",
+  "name": "Shopify",
+  "sector": "Technology",
+  "verdict": "HOLD",
+  "score": 0.141,
+  "price_eur": 122.1115
+ },
+ {
+  "ticker": "MRK",
+  "name": "Merck & Co.",
+  "sector": "Healthcare",
+  "verdict": "HOLD",
+  "score": 0.139,
+  "price_eur": 127.6752
+ },
+ {
+  "ticker": "DHL.DE",
+  "name": "DHL Group",
+  "sector": "Industrials",
+  "verdict": "HOLD",
+  "score": 0.133,
+  "price_eur": 56.06
+ },
+ {
+  "ticker": "PYPL",
+  "name": "PayPal",
+  "sector": "Financial Services",
+  "verdict": "HOLD",
+  "score": 0.13,
+  "price_eur": 52.4551
+ },
+ {
+  "ticker": "AAPL",
+  "name": "Apple",
+  "sector": "Technology",
+  "verdict": "HOLD",
+  "score": 0.129,
+  "price_eur": 322.9534
+ },
+ {
+  "ticker": "ASML.AS",
+  "name": "ASML",
+  "sector": "Technology",
+  "verdict": "HOLD",
+  "score": 0.127,
+  "price_eur": 1131.6
+ },
+ {
+  "ticker": "AIR.PA",
+  "name": "Airbus",
+  "sector": "Industrials",
+  "verdict": "HOLD",
+  "score": 0.123,
+  "price_eur": 190.0
+ },
+ {
+  "ticker": "PEP",
+  "name": "PepsiCo",
+  "sector": "Consumer Defensive",
+  "verdict": "HOLD",
+  "score": 0.119,
+  "price_eur": 131.2858
+ },
+ {
+  "ticker": "SHL.DE",
+  "name": "Siemens Healthineers",
+  "sector": "Healthcare",
+  "verdict": "HOLD",
+  "score": 0.112,
+  "price_eur": 42.91
+ },
+ {
+  "ticker": "JNJ",
+  "name": "Johnson & Johnson",
+  "sector": "Healthcare",
+  "verdict": "HOLD",
+  "score": 0.11,
+  "price_eur": 250.4241
+ },
+ {
+  "ticker": "ENR.DE",
+  "name": "Siemens Energy",
+  "sector": "Industrials",
+  "verdict": "HOLD",
+  "score": 0.109,
+  "price_eur": 112.46
+ },
+ {
+  "ticker": "PG",
+  "name": "Procter & Gamble",
+  "sector": "Consumer Defensive",
+  "verdict": "HOLD",
+  "score": 0.107,
+  "price_eur": 157.7205
+ },
+ {
+  "ticker": "AMD",
+  "name": "Advanced Micro Devices",
+  "sector": "Technology",
+  "verdict": "HOLD",
+  "score": 0.107,
+  "price_eur": 367.937
+ },
+ {
+  "ticker": "AVGO",
+  "name": "Broadcom",
+  "sector": "Technology",
+  "verdict": "HOLD",
+  "score": 0.103,
+  "price_eur": 271.2586
+ },
+ {
+  "ticker": "SU.PA",
+  "name": "Schneider Electric",
+  "sector": "Industrials",
+  "verdict": "HOLD",
+  "score": 0.096,
+  "price_eur": 216.65
+ },
+ {
+  "ticker": "BAS.DE",
+  "name": "BASF",
+  "sector": "Basic Materials",
+  "verdict": "HOLD",
+  "score": 0.093,
+  "price_eur": 49.2
+ },
+ {
+  "ticker": "RACE.MI",
+  "name": "Ferrari",
+  "sector": "Consumer Cyclical",
+  "verdict": "HOLD",
+  "score": 0.09,
+  "price_eur": 365.7
+ },
+ {
+  "ticker": "MCD",
+  "name": "McDonald's",
+  "sector": "Consumer Cyclical",
+  "verdict": "HOLD",
+  "score": 0.089,
+  "price_eur": 258.2826
+ },
+ {
+  "ticker": "KO",
+  "name": "Coca-Cola",
+  "sector": "Consumer Defensive",
+  "verdict": "HOLD",
+  "score": 0.086,
+  "price_eur": 89.3754
+ },
+ {
+  "ticker": "MTX.DE",
+  "name": "MTU Aero Engines",
+  "sector": "Industrials",
+  "verdict": "HOLD",
+  "score": 0.083,
+  "price_eur": 337.7
+ },
+ {
+  "ticker": "RO.SW",
+  "name": "Roche (bearer)",
+  "sector": "Unknown",
+  "verdict": "HOLD",
+  "score": 0.08,
+  "price_eur": 411.0
+ },
+ {
+  "ticker": "ISRG",
+  "name": "Intuitive Surgical",
+  "sector": "Healthcare",
+  "verdict": "HOLD",
+  "score": 0.079,
+  "price_eur": 389.0083
+ },
+ {
+  "ticker": "HD",
+  "name": "Home Depot",
+  "sector": "Consumer Cyclical",
+  "verdict": "HOLD",
+  "score": 0.075,
+  "price_eur": 329.0271
+ },
+ {
+  "ticker": "QCOM",
+  "name": "Qualcomm",
+  "sector": "Technology",
+  "verdict": "HOLD",
+  "score": 0.074,
+  "price_eur": 152.2534
+ },
+ {
+  "ticker": "CAT",
+  "name": "Caterpillar",
+  "sector": "Industrials",
+  "verdict": "HOLD",
+  "score": 0.071,
+  "price_eur": 494.5878
+ },
+ {
+  "ticker": "SIE.DE",
+  "name": "Siemens",
+  "sector": "Industrials",
+  "verdict": "HOLD",
+  "score": 0.07,
+  "price_eur": 245.5
+ },
+ {
+  "ticker": "OR.PA",
+  "name": "L'Oréal",
+  "sector": "Consumer Defensive",
+  "verdict": "HOLD",
+  "score": 0.069,
+  "price_eur": 442.0
+ },
+ {
+  "ticker": "NOVN.SW",
+  "name": "Novartis",
+  "sector": "Healthcare",
+  "verdict": "HOLD",
+  "score": 0.066,
+  "price_eur": 140.4759
+ },
+ {
+  "ticker": "MC.PA",
+  "name": "LVMH",
+  "sector": "Consumer Cyclical",
+  "verdict": "HOLD",
+  "score": 0.063,
+  "price_eur": 391.0
+ },
+ {
+  "ticker": "ORCL",
+  "name": "Oracle",
+  "sector": "Technology",
+  "verdict": "HOLD",
+  "score": 0.061,
+  "price_eur": 94.8845
+ },
+ {
+  "ticker": "NOW",
+  "name": "ServiceNow",
+  "sector": "Technology",
+  "verdict": "HOLD",
+  "score": 0.059,
+  "price_eur": 83.8845
+ },
+ {
+  "ticker": "ADYEN.AS",
+  "name": "Adyen",
+  "sector": "Technology",
+  "verdict": "HOLD",
+  "score": 0.054,
+  "price_eur": 831.9
+ },
+ {
+  "ticker": "SPOT",
+  "name": "Spotify",
+  "sector": "Communication Services",
+  "verdict": "HOLD",
+  "score": 0.052,
+  "price_eur": 565.4279
+ },
+ {
+  "ticker": "IFX.DE",
+  "name": "Infineon",
+  "sector": "Technology",
+  "verdict": "HOLD",
+  "score": 0.046,
+  "price_eur": 40.895
+ },
+ {
+  "ticker": "HAG.DE",
+  "name": "Hensoldt",
+  "sector": "Industrials",
+  "verdict": "HOLD",
+  "score": 0.046,
+  "price_eur": 77.22
+ },
+ {
+  "ticker": "COST",
+  "name": "Costco",
+  "sector": "Consumer Defensive",
+  "verdict": "HOLD",
+  "score": 0.045,
+  "price_eur": 991.27
+ },
+ {
+  "ticker": "IBE.MC",
+  "name": "Iberdrola",
+  "sector": "Utilities",
+  "verdict": "HOLD",
+  "score": 0.04,
+  "price_eur": 22.72
+ },
+ {
+  "ticker": "NESN.SW",
+  "name": "Nestlé",
+  "sector": "Consumer Defensive",
+  "verdict": "HOLD",
+  "score": 0.035,
+  "price_eur": 95.5697
+ },
+ {
+  "ticker": "GOOGL",
+  "name": "Alphabet (A)",
+  "sector": "Communication Services",
+  "verdict": "HOLD",
+  "score": 0.028,
+  "price_eur": 247.8926
+ },
+ {
+  "ticker": "AMZN",
+  "name": "Amazon",
+  "sector": "Consumer Cyclical",
+  "verdict": "HOLD",
+  "score": 0.026,
+  "price_eur": 223.2654
+ },
+ {
+  "ticker": "SBUX",
+  "name": "Starbucks",
+  "sector": "Consumer Cyclical",
+  "verdict": "HOLD",
+  "score": 0.022,
+  "price_eur": 98.2947
+ },
+ {
+  "ticker": "WMT",
+  "name": "Walmart",
+  "sector": "Consumer Defensive",
+  "verdict": "HOLD",
+  "score": -0.007,
+  "price_eur": 120.14
+ },
+ {
+  "ticker": "UBER",
+  "name": "Uber",
+  "sector": "Technology",
+  "verdict": "HOLD",
+  "score": -0.018,
+  "price_eur": 60.4183
+ },
+ {
+  "ticker": "VOW3.DE",
+  "name": "Volkswagen (Vz.)",
+  "sector": "Consumer Cyclical",
+  "verdict": "HOLD",
+  "score": -0.022,
+  "price_eur": 65.24
+ },
+ {
+  "ticker": "NOVO-B.CO",
+  "name": "Novo Nordisk (B)",
+  "sector": "Healthcare",
+  "verdict": "HOLD",
+  "score": -0.028,
+  "price_eur": 36.703
+ },
+ {
+  "ticker": "BMW.DE",
+  "name": "BMW",
+  "sector": "Consumer Cyclical",
+  "verdict": "HOLD",
+  "score": -0.05,
+  "price_eur": 55.24
+ },
+ {
+  "ticker": "CRWD",
+  "name": "CrowdStrike",
+  "sector": "Technology",
+  "verdict": "HOLD",
+  "score": -0.063,
+  "price_eur": 189.5869
+ },
+ {
+  "ticker": "MBG.DE",
+  "name": "Mercedes-Benz Group",
+  "sector": "Consumer Cyclical",
+  "verdict": "HOLD",
+  "score": -0.065,
+  "price_eur": 37.54
+ },
+ {
+  "ticker": "RMS.PA",
+  "name": "Hermès",
+  "sector": "Consumer Cyclical",
+  "verdict": "HOLD",
+  "score": -0.072,
+  "price_eur": 1252.0
+ },
+ {
+  "ticker": "INTC",
+  "name": "Intel",
+  "sector": "Technology",
+  "verdict": "SELL",
+  "score": -0.11,
+  "price_eur": 48.9447
+ },
+ {
+  "ticker": "NKE",
+  "name": "Nike",
+  "sector": "Consumer Cyclical",
+  "verdict": "SELL",
+  "score": -0.16,
+  "price_eur": 33.3371
+ },
+ {
+  "ticker": "TSLA",
+  "name": "Tesla",
+  "sector": "Consumer Cyclical",
+  "verdict": "SELL",
+  "score": -0.216,
+  "price_eur": 347.9038
+ }
+]

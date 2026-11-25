@@ -1,0 +1,180 @@
+{
+ "date": "2026-11-25",
+ "ticker": "ADS.DE",
+ "name": "Adidas",
+ "sector": "Consumer Cyclical",
+ "verdict": "BUY",
+ "score": 0.266,
+ "conviction": "Medium",
+ "price_eur": 170.45,
+ "max_weight": 0.137,
+ "opinions": [
+  {
+   "role": "Fundamental Analyst",
+   "persona": "Fiona",
+   "score": 0.35,
+   "stance": "Bullish",
+   "coverage": 1.0,
+   "points": [
+    {
+     "text": "Revenue is growing 9.4% year over year (modest).",
+     "weight": 0.2
+    },
+    {
+     "text": "Earnings changed +58.1% versus a year ago.",
+     "weight": 0.9
+    },
+    {
+     "text": "Operating margin is 9.2%.",
+     "weight": 0.1
+    },
+    {
+     "text": "Return on equity is 26.3%.",
+     "weight": 0.6
+    },
+    {
+     "text": "Debt/equity is 90% (moderate leverage).",
+     "weight": 0.1
+    },
+    {
+     "text": "Free-cash-flow margin is 6.5% of revenue.",
+     "weight": 0.2
+    }
+   ]
+  },
+  {
+   "role": "Valuation Analyst",
+   "persona": "Victor",
+   "score": 0.42,
+   "stance": "Bullish",
+   "coverage": 1.0,
+   "points": [
+    {
+     "text": "It trades at 14.5x forward earnings.",
+     "weight": 0.4
+    },
+    {
+     "text": "PEG ratio is 0.66 (price paid per unit of growth).",
+     "weight": 0.6
+    },
+    {
+     "text": "EV/EBITDA is 11.4x.",
+     "weight": 0.2
+    },
+    {
+     "text": "Free-cash-flow yield is 6.1%.",
+     "weight": 0.6
+    },
+    {
+     "text": "Price/sales is only 1.1x.",
+     "weight": 0.3
+    }
+   ]
+  },
+  {
+   "role": "Technical Analyst",
+   "persona": "Tara",
+   "score": 0.14,
+   "stance": "Mildly bullish",
+   "coverage": 1.0,
+   "points": [
+    {
+     "text": "Price is 9.1% above its 200-day average: the long-term trend is up.",
+     "weight": 0.6
+    },
+    {
+     "text": "The 50-day average is above the 200-day average (bullish alignment).",
+     "weight": 0.4
+    },
+    {
+     "text": "RSI(14) is 53: neutral.",
+     "weight": 0.0
+    },
+    {
+     "text": "MACD is negative and falling: momentum is deteriorating.",
+     "weight": -0.3
+    },
+    {
+     "text": "It is 9.3% below its 52-week high.",
+     "weight": 0.0
+    }
+   ]
+  },
+  {
+   "role": "Sentiment & Momentum Analyst",
+   "persona": "Sam",
+   "score": 0.2,
+   "stance": "Mildly bullish",
+   "coverage": 1.0,
+   "points": [
+    {
+     "text": "30 Wall Street analysts rate it 1.8/5 on average (buy).",
+     "weight": 0.3
+    },
+    {
+     "text": "The average analyst price target implies 17.1% upside.",
+     "weight": 0.3
+    },
+    {
+     "text": "Over 6 months it returned +2.2% versus -1.7% for the MSCI World benchmark.",
+     "weight": 0.2
+    },
+    {
+     "text": "Last month: +8.3%.",
+     "weight": 0.0
+    }
+   ]
+  },
+  {
+   "role": "Risk Manager",
+   "persona": "Rita",
+   "score": -0.025,
+   "stance": "Neutral",
+   "coverage": 1.0,
+   "points": [
+    {
+     "text": "Annualised volatility is 33%.",
+     "weight": -0.3
+    },
+    {
+     "text": "Worst peak-to-trough fall in the past year: 24.5%.",
+     "weight": 0.0
+    },
+    {
+     "text": "Beta of 1.13: moves roughly with the market.",
+     "weight": 0.0
+    },
+    {
+     "text": "No exposure to Consumer Cyclical yet — this would diversify the portfolio.",
+     "weight": 0.2
+    }
+   ]
+  }
+ ],
+ "debate": [
+  {
+   "who": "Ben (Bull)",
+   "said": "Here is the case for owning Adidas. Earnings changed +58.1% versus a year ago. Return on equity is 26.3%. PEG ratio is 0.66 (price paid per unit of growth)."
+  },
+  {
+   "who": "Bea (Bear)",
+   "said": "I'm not convinced. MACD is negative and falling: momentum is deteriorating. Annualised volatility is 33%."
+  },
+  {
+   "who": "Ben (Bull), rebuttal",
+   "said": "Price action is noise over a few weeks; the business is what we own — earnings changed +58.1% versus a year ago. Weakness can be an entry point."
+  },
+  {
+   "who": "Bea (Bear), rebuttal",
+   "said": "I'll concede that one."
+  }
+ ],
+ "risk": [
+  "Maximum position size: 14% of the portfolio (scaled for 33% volatility).",
+  "Every order costs a €1 fee, like on Trade Republic. Stop-loss rule: review at -15% from cost."
+ ],
+ "chair": [
+  "Weighted committee score is +0.27 on a scale of -1 to +1; 4 of 5 analysts lean the same way. Conviction: Medium.",
+  "Decision: BUY. We propose a position of up to 14% of the portfolio."
+ ]
+}

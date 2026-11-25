@@ -1,0 +1,176 @@
+{
+ "date": "2026-11-25",
+ "ticker": "CVX",
+ "name": "Chevron",
+ "sector": "Energy",
+ "verdict": "STRONG BUY",
+ "score": 0.354,
+ "conviction": "High",
+ "price_eur": 192.6101,
+ "max_weight": 0.181,
+ "opinions": [
+  {
+   "role": "Fundamental Analyst",
+   "persona": "Fiona",
+   "score": 0.4,
+   "stance": "Bullish",
+   "coverage": 1.0,
+   "points": [
+    {
+     "text": "Revenue is growing 34.8% year over year (strong).",
+     "weight": 1.0
+    },
+    {
+     "text": "Earnings jumped +178% versus a year ago, but that mostly reflects a depressed prior year.",
+     "weight": 0.3
+    },
+    {
+     "text": "Operating margin is 15.1%.",
+     "weight": 0.4
+    },
+    {
+     "text": "Return on equity is 13.9%.",
+     "weight": 0.1
+    },
+    {
+     "text": "Debt/equity is 17% (conservative leverage).",
+     "weight": 0.4
+    },
+    {
+     "text": "Free-cash-flow margin is 11.5% of revenue.",
+     "weight": 0.2
+    }
+   ]
+  },
+  {
+   "role": "Valuation Analyst",
+   "persona": "Victor",
+   "score": 0.525,
+   "stance": "Bullish",
+   "coverage": 1.0,
+   "points": [
+    {
+     "text": "It trades at 12.8x forward earnings.",
+     "weight": 0.4
+    },
+    {
+     "text": "PEG ratio is 0.94 (price paid per unit of growth).",
+     "weight": 0.6
+    },
+    {
+     "text": "EV/EBITDA is 7.5x.",
+     "weight": 0.5
+    },
+    {
+     "text": "Free-cash-flow yield is 6.3%.",
+     "weight": 0.6
+    }
+   ]
+  },
+  {
+   "role": "Technical Analyst",
+   "persona": "Tara",
+   "score": 0.19,
+   "stance": "Mildly bullish",
+   "coverage": 1.0,
+   "points": [
+    {
+     "text": "Price is 9.1% above its 200-day average: the long-term trend is up.",
+     "weight": 0.6
+    },
+    {
+     "text": "The 50-day average is above the 200-day average (bullish alignment).",
+     "weight": 0.4
+    },
+    {
+     "text": "RSI(14) is 47: neutral.",
+     "weight": 0.0
+    },
+    {
+     "text": "MACD is negative but improving.",
+     "weight": -0.05
+    },
+    {
+     "text": "It is 9.4% below its 52-week high.",
+     "weight": 0.0
+    }
+   ]
+  },
+  {
+   "role": "Sentiment & Momentum Analyst",
+   "persona": "Sam",
+   "score": 0.35,
+   "stance": "Bullish",
+   "coverage": 1.0,
+   "points": [
+    {
+     "text": "24 Wall Street analysts rate it 1.6/5 on average (buy).",
+     "weight": 0.6
+    },
+    {
+     "text": "The average analyst price target implies 14.2% upside.",
+     "weight": 0.3
+    },
+    {
+     "text": "Over 6 months it returned +17.5% versus -1.7% for the MSCI World benchmark.",
+     "weight": 0.5
+    },
+    {
+     "text": "Last month: -6.6%.",
+     "weight": 0.0
+    }
+   ]
+  },
+  {
+   "role": "Risk Manager",
+   "persona": "Rita",
+   "score": 0.125,
+   "stance": "Mildly bullish",
+   "coverage": 1.0,
+   "points": [
+    {
+     "text": "Annualised volatility is 25%.",
+     "weight": 0.1
+    },
+    {
+     "text": "Worst peak-to-trough fall in the past year: 20.8%.",
+     "weight": 0.0
+    },
+    {
+     "text": "Beta of 0.45: defensive, moves less than the market.",
+     "weight": 0.2
+    },
+    {
+     "text": "No exposure to Energy yet — this would diversify the portfolio.",
+     "weight": 0.2
+    }
+   ]
+  }
+ ],
+ "debate": [
+  {
+   "who": "Ben (Bull)",
+   "said": "Here is the case for owning Chevron. Revenue is growing 34.8% year over year (strong). PEG ratio is 0.94 (price paid per unit of growth). Free-cash-flow yield is 6.3%."
+  },
+  {
+   "who": "Bea (Bear)",
+   "said": "I'm not convinced. MACD is negative but improving."
+  },
+  {
+   "who": "Ben (Bull), rebuttal",
+   "said": "Price action is noise over a few weeks; the business is what we own — revenue is growing 34.8% year over year (strong). Weakness can be an entry point."
+  },
+  {
+   "who": "Bea (Bear), rebuttal",
+   "said": "I'll concede that one."
+  }
+ ],
+ "risk": [
+  "Maximum position size: 18% of the portfolio (scaled for 25% volatility).",
+  "Every order costs a €1 fee, like on Trade Republic. Stop-loss rule: review at -15% from cost."
+ ],
+ "chair": [
+  "Weighted committee score is +0.35 on a scale of -1 to +1; 5 of 5 analysts lean the same way. Conviction: High.",
+  "Decision: STRONG BUY. We propose a position of up to 18% of the portfolio."
+ ]
+}

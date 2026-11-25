@@ -1,0 +1,411 @@
+<title>Trading Arena</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+<style>
+/* VOICE occasion: a game, but about money, so the numbers stay exact
+   IDEA a race day: the committee's portfolio runs against the MSCI World on a track, you are the team boss approving moves
+   PICTURE the race track with two runners placed by their return, start line at €2,000
+   COLOUR cobalt livery band, white ground, coral rival, green/red only for gains/losses
+   TYPE Archivo 900 display + Archivo text
+   LAYOUT laptop: cobalt band with title+level, full-width track, four stat figures; then decision cards, committee chat, holdings+standings; phone: same order stacked */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#0d1015);--ink:light-dark(#12151b,#eef0f5);--mute:light-dark(#5b6270,#9aa3b3);--line:light-dark(#e3e6ec,#262c36);--panel:light-dark(#f5f6f9,#151a22);--cob:light-dark(#2340ff,#3a55ff);--cobd:light-dark(#1a30c9,#2a3fd0);--coral:#ff5a36;--up:light-dark(#0b8a4c,#3ccf7f);--dn:light-dark(#d42330,#ff5964);--gold:#ffc83d}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Archivo,system-ui,sans-serif;overflow-x:clip}
+.band{padding-block:clamp(28px,4vw,56px);padding-left:max(5vw,16px,env(safe-area-inset-left,0px));padding-right:max(5vw,16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1240px;margin:0 auto}
+.hero{background:var(--cob);color:#fff;margin-top:calc(-1*env(safe-area-inset-top,0px));padding-top:calc(env(safe-area-inset-top,0px) + 32px)}
+h1,h2{font-weight:900;letter-spacing:-.02em;line-height:1.05;margin:0}
+h1{font-size:clamp(34px,5vw,52px)}
+h2{font-size:clamp(24px,3vw,32px);margin-bottom:6px}
+.sub{color:var(--mute);margin:0 0 20px}
+.hero .sub{color:#dfe4ff}
+.top{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-between;align-items:flex-end}
+.lvl{display:flex;gap:14px;align-items:center;background:var(--cobd);border-radius:14px;padding:10px 16px}
+.lvl b{font-size:28px;font-weight:900;background:var(--gold);color:#12151b;border-radius:10px;width:48px;height:48px;display:grid;place-items:center}
+.xp{width:170px;height:8px;border-radius:4px;background:#ffffff33;overflow:hidden;margin-top:6px}
+.xp i{display:block;height:100%;background:var(--gold)}
+.fig{position:relative;height:250px;margin:22px 0 8px}
+.fig>svg{position:absolute;inset:0;width:100%;height:100%}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:12px}
+.stat{background:var(--cobd);border-radius:14px;padding:14px 16px}
+.stat small{display:block;color:#dfe4ff;font-size:14px}
+.stat b{font-size:clamp(24px,3vw,30px);font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums}
+.stat em{font-style:normal;font-size:14px;color:#dfe4ff}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:14px}
+.card{border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px;background:var(--bg)}
+.card.sel{border-color:var(--cob);box-shadow:0 0 0 2px var(--cob)}
+.ch{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.ch h3{margin:0;font-size:19px;font-weight:800;line-height:1.2}
+.ch small,.meta{color:var(--mute);font-size:14px}
+.stamp{border:2px solid currentColor;border-radius:8px;padding:2px 8px;font-weight:900;font-size:13px;white-space:nowrap;transform:rotate(-4deg)}
+.v-buy{color:var(--up)}.v-sell{color:var(--dn)}.v-hold{color:var(--mute)}
+.amt{font-size:26px;font-weight:900;white-space:nowrap}
+.bars{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.bar{height:44px;background:var(--panel);border-radius:6px;position:relative;overflow:hidden}
+.bar i{position:absolute;left:0;right:0;bottom:50%}
+.bar i.n{top:50%;bottom:auto}
+.bar span{position:absolute;inset:auto 0 2px;text-align:center;font-size:13px;font-weight:700}
+.bar::after{content:"";position:absolute;left:0;right:0;top:50%;border-top:1px solid var(--line)}
+.btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
+button{font:600 15px Archivo,system-ui,sans-serif;border-radius:10px;padding:10px 14px;min-height:44px;cursor:pointer;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+button:hover{border-color:var(--ink)}
+button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+button.go{background:var(--cob);color:#fff;border-color:var(--cob)}
+button.go:hover{background:var(--cobd)}
+button:disabled{opacity:.45;cursor:default}
+.chip{display:inline-block;font-size:13px;font-weight:700;border-radius:20px;padding:3px 10px;background:var(--panel)}
+.chip.ok{background:color-mix(in srgb,var(--up) 16%,transparent);color:var(--up)}
+.chip.no{background:color-mix(in srgb,var(--dn) 14%,transparent);color:var(--dn)}
+.chip.q{background:color-mix(in srgb,var(--gold) 30%,transparent)}
+.room{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:24px}
+.who{display:flex;flex-direction:column;gap:8px}
+.cast{display:grid;grid-template-columns:40px 1fr auto;gap:10px;align-items:center;font-size:15px}
+.cast small{color:var(--mute);display:block;font-size:13px}
+.chat{background:var(--panel);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:12px;max-height:720px;overflow-y:auto}
+.rnd{align-self:center;font-weight:800;font-size:14px;color:var(--mute);margin-top:6px}
+.msg{display:grid;grid-template-columns:40px 1fr;gap:10px;animation:pop .35s ease-out both}
+.msg.r{grid-template-columns:1fr 40px}
+.msg.r .av{order:2}
+.bub{background:var(--bg);border-radius:14px;padding:10px 14px;border:1px solid var(--line)}
+.bub b{font-size:14px}
+.bub ul{margin:6px 0 0;padding-left:18px}
+.bub li{margin:2px 0}
+.pos{color:var(--up)}.neg{color:var(--dn)}
+.verdict{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+@keyframes pop{from{opacity:0;transform:translateY(8px)}}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px}
+.rank{display:grid;grid-template-columns:minmax(0,9em) minmax(0,1fr) 3.2em;gap:8px;align-items:center;font-size:14px;padding:3px 0}
+.rank .t{position:relative;height:16px}
+.rank .t::before{content:"";position:absolute;left:50%;top:-3px;bottom:-3px;border-left:1px solid var(--line)}
+.rank .t i{position:absolute;top:0;bottom:0;border-radius:3px}
+.rank .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rank .sc{text-align:right;font-variant-numeric:tabular-nums}
+.empty{border:2px dashed var(--line);border-radius:16px;padding:24px;color:var(--mute);text-align:center}
+.badges{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,180px),1fr));gap:10px}
+.badge{display:flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:10px}
+.badge svg{flex:none}
+.badge.off{opacity:.4;filter:grayscale(1)}
+.badge b{display:block;font-size:15px}
+.badge small{color:var(--mute);font-size:13px;line-height:1.3;display:block}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);white-space:nowrap}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.note{color:var(--mute);font-size:14px}
+@media(max-width:820px){.room,.two{grid-template-columns:minmax(0,1fr)}.who{display:grid;grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.fig{height:210px}.who{grid-template-columns:1fr}.chat{max-height:none}table{font-size:13px}th,td{padding:6px 4px}}
+@media(prefers-reduced-motion:reduce){.msg{animation:none}}
+</style>
+
+<section class="band hero">
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <h1>Trading Arena</h1>
+        <p class="sub" id="tagline">The committee's portfolio races the MSCI World. You approve every move.</p>
+      </div>
+      <div class="lvl" title="XP: trades, decisions, profit and beating the market">
+        <b id="lvlN">1</b>
+        <div><div id="lvlName" style="font-weight:800">Intern</div><div class="xp"><i id="xpBar" style="width:0"></i></div><small id="xpTxt" style="color:#dfe4ff;font-size:13px"></small></div>
+      </div>
+    </div>
+    <div class="fig" id="track" role="img" aria-label="Race track: portfolio return versus MSCI World return"></div>
+    <div class="stats" id="stats"></div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2 id="moveTitle">Your move</h2>
+    <p class="sub" id="moveSub"></p>
+    <div class="cards" id="cards"></div>
+    <p class="note" id="dbNote"></p>
+  </div>
+</section>
+
+<section class="band" style="background:var(--panel)">
+  <div class="wrap">
+    <h2 id="roomTitle">The committee room</h2>
+    <p class="sub" id="roomSub">Pick a proposal above to hear how the committee argued it.</p>
+    <div class="room">
+      <div class="who" id="cast"></div>
+      <div>
+        <div class="btns" style="margin-bottom:10px"><button id="replay" class="go">▶ Replay the debate</button><button id="skip">Show all</button></div>
+        <div class="chat" id="chat" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap two">
+    <div>
+      <h2>Your team</h2>
+      <p class="sub">Positions the committee holds for you.</p>
+      <div id="holdings"></div>
+    </div>
+    <div>
+      <h2>Scouting board</h2>
+      <p class="sub">Top of today's committee ranking, score from −1 to +1.</p>
+      <div id="ranking"></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" style="background:var(--panel)">
+  <div class="wrap">
+    <h2>Trophy cabinet</h2>
+    <p class="sub" id="trophySub"></p>
+    <div class="badges" id="badges"></div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2>Trade log</h2>
+    <div class="scroll"><table id="log"></table></div>
+    <p class="note" id="foot"></p>
+  </div>
+</section>
+
+<script>
+{
+const $ = id => document.getElementById(id);
+const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const eur = (x, d = 2) => '€' + Number(x).toLocaleString('en-IE', {minimumFractionDigits: d, maximumFractionDigits: d});
+const pct = x => (x >= 0 ? '+' : '−') + Math.abs(x * 100).toFixed(2) + '%';
+const sgn = x => (x >= 0 ? '+' : '−') + eur(Math.abs(x));
+
+const CAST = {
+  Fiona: {role: 'Fundamentals', c: '#0b8a4c', k: 'F'}, Victor: {role: 'Valuation', c: '#7c4dff', k: 'V'},
+  Tara: {role: 'Technicals', c: '#f08c00', k: 'T'}, Sam: {role: 'Sentiment', c: '#0f9bd7', k: 'S'},
+  Rita: {role: 'Risk', c: '#d42330', k: 'R'}, Ben: {role: 'The Bull', c: '#2340ff', k: 'bull'},
+  Bea: {role: 'The Bear', c: '#8a5a2b', k: 'bear'}, Clara: {role: 'Chair', c: '#12151b', k: 'chair'}
+};
+function avatar(name, size = 40) {
+  const a = CAST[name] || {c: '#888', k: '?'};
+  let extra = '', letter = a.k.length === 1 ? a.k : '';
+  if (a.k === 'bull') extra = '<path d="M7 13 Q2 5 9 3 Q8 9 12 11Z M33 13 Q38 5 31 3 Q32 9 28 11Z" fill="#f5e6c8"/>';
+  if (a.k === 'bear') extra = '<circle cx="9" cy="9" r="6" fill="' + a.c + '"/><circle cx="31" cy="9" r="6" fill="' + a.c + '"/>';
+  if (a.k === 'chair') extra = '<path d="M11 6 L15 11 L20 4 L25 11 L29 6 L28 13 L12 13Z" fill="#ffc83d"/>';
+  const face = a.k.length > 1 ? '<circle cx="15" cy="21" r="2" fill="#fff"/><circle cx="25" cy="21" r="2" fill="#fff"/><path d="M15 28 Q20 31 25 28" stroke="#fff" stroke-width="2" fill="none"/>' : '';
+  return `<svg class="av" width="${size}" height="${size}" viewBox="0 0 40 40" aria-hidden="true">${extra}<circle cx="20" cy="22" r="16" fill="${a.c}"/>${face}${letter ? `<text x="20" y="28" text-anchor="middle" font-size="17" font-weight="900" fill="#fff" font-family="Archivo">${letter}</text>` : ''}</svg>`;
+}
+
+let D = null, decisions = {}, db = null, canDecide = false, selected = null, timer = null;
+
+function vClass(v) { return /BUY/.test(v) ? 'v-buy' : /SELL|TRIM/.test(v) ? 'v-sell' : 'v-hold'; }
+
+function stateOf(p) {
+  if (p.status === 'executed') return ['ok', 'Executed ' + esc((p.executed || '').slice(0, 10))];
+  if (p.status === 'rejected') return ['no', 'Passed'];
+  if (p.status === 'expired') return ['', 'Expired'];
+  const d = decisions[p.id];
+  if (d === 'approve') return ['q', 'Approved · trades on the next run'];
+  if (d === 'reject') return ['q', 'Passing · confirmed on the next run'];
+  return ['', 'Waiting for you'];
+}
+
+function renderHero() {
+  const s = D.summary, inv = s.invested || 1, r = s.value / inv - 1, b = s.bench_value ? s.bench_value / inv - 1 : 0;
+  const day = D.start ? Math.max(1, Math.floor((Date.now() - new Date(D.start)) / 864e5) + 1) : 1;
+  $('tagline').textContent = `Day ${day} of the season. The committee's portfolio races the MSCI World; you approve every move.`;
+  const lead = s.value - (s.bench_value ?? s.value);
+  $('stats').innerHTML = [
+    ['Portfolio value', eur(s.value), `deposited ${eur(s.invested, 0)}`],
+    ['Profit / loss', sgn(s.value - s.invested), pct(r)],
+    ['Versus MSCI World', (lead >= 0 ? 'Ahead ' : 'Behind ') + eur(Math.abs(lead)), `index fund ${pct(b)}`],
+    ['Cash on the bench', eur(s.cash), `${((s.cash / (s.value || 1)) * 100).toFixed(0)}% of the portfolio`]
+  ].map(([l, v, e]) => `<div class="stat"><small>${l}</small><b>${v}</b><br><em>${e}</em></div>`).join('');
+  const el = $('track');
+  const draw = () => {
+    const W = el.clientWidth, H = el.clientHeight, m = 26, lim = Math.max(0.05, Math.ceil(Math.max(Math.abs(r), Math.abs(b)) * 20 + 1) / 20);
+    const x = v => m + (v + lim) / (2 * lim) * (W - 2 * m), lane = [H * 0.36, H * 0.70];
+    let g = `<rect x="0" y="${H*0.18}" width="${W}" height="${H*0.70}" rx="18" fill="#1a30c9"/>`;
+    g += `<rect x="${x(0)}" y="${H*0.18}" width="${W - x(0)}" height="${H*0.70}" fill="#3ccf7f" opacity=".16"/><rect x="0" y="${H*0.18}" width="${x(0)}" height="${H*0.70}" fill="#ff5964" opacity=".12"/>`;
+    g += `<line x1="0" x2="${W}" y1="${H*0.53}" y2="${H*0.53}" stroke="#fff" stroke-opacity=".35" stroke-dasharray="14 10" stroke-width="2"/>`;
+    const step = lim > 0.12 ? 0.05 : lim > 0.06 ? 0.02 : 0.01;
+    for (let t = -lim; t <= lim + 1e-9; t += step) {
+      const tx = x(t), z = Math.abs(t) < 1e-9;
+      g += `<line x1="${tx}" x2="${tx}" y1="${H*0.18}" y2="${H*0.88}" stroke="#fff" stroke-opacity="${z ? .9 : .15}" stroke-width="${z ? 3 : 1}"/>`;
+      if (W > 520 || Math.round(t / step) % 2 === 0) g += `<text x="${tx}" y="${H*0.98}" fill="#dfe4ff" font-size="13" text-anchor="middle">${z ? 'start' : (t > 0 ? '+' : '−') + Math.round(Math.abs(t) * 100) + '%'}</text>`;
+    }
+    g += `<text x="12" y="${H*0.12}" fill="#dfe4ff" font-size="14">◀ losing money</text><text x="${W - 12}" y="${H*0.12}" fill="#dfe4ff" font-size="14" text-anchor="end">making money ▶</text>`;
+    const runner = (v, y, fill, tag, label) => `<g class="run" style="transform:translateX(${x(v) - x(0)}px);transition:transform 1.4s cubic-bezier(.2,.8,.2,1)"><circle cx="${x(0)}" cy="${y}" r="17" fill="${fill}" stroke="#fff" stroke-width="3"/><text x="${x(0)}" y="${y + 5}" text-anchor="middle" font-weight="900" font-size="14" fill="#fff">${tag}</text><text x="${x(0) + (v >= 0 ? 24 : -24)}" y="${y + 5}" text-anchor="${v >= 0 ? 'start' : 'end'}" font-size="14" font-weight="700" fill="#fff" style="paint-order:stroke;stroke:#1a30c9;stroke-width:4px">${label}</text></g>`;
+    g += runner(b, lane[1], '#ff5a36', 'W', `MSCI World ${pct(b)}`);
+    g += runner(r, lane[0], '#12151b', 'C', `Committee ${pct(r)}`);
+    el.innerHTML = `<svg viewBox="0 0 ${W} ${H}">${g}</svg>`;
+  };
+  const trackObs = new ResizeObserver(draw); trackObs.observe(el);
+}
+
+function scoreBars(op) {
+  return `<div class="bars">${op.map(o => {
+    const h = Math.min(50, Math.abs(o.score) * 50), up = o.score >= 0;
+    return `<div class="bar" title="${esc(o.persona)} (${esc(o.role)}): ${o.score.toFixed(2)}"><i class="${up ? '' : 'n'}" style="height:${h}%;background:${up ? 'var(--up)' : 'var(--dn)'}"></i><span>${esc((CAST[o.persona] || {}).k || '?')}</span></div>`;
+  }).join('')}</div>`;
+}
+
+function renderCards() {
+  const live = D.proposals.filter(p => p.status === 'pending');
+  const rest = D.proposals.filter(p => p.status !== 'pending').slice(0, 6);
+  const list = live.concat(rest);
+  const open = live.filter(p => !decisions[p.id]).length;
+  const total = live.filter(p => p.action === 'BUY').reduce((a, p) => a + p.amount_eur, 0);
+  $('moveSub').textContent = live.length ? `${open} of ${live.length} proposals still need your call · ${eur(total, 0)} of buys on the table. Each order costs €1.` : 'No proposals waiting. The committee scouts again on the next run.';
+  if (!list.length) { $('cards').innerHTML = '<div class="empty">Nothing on the table yet.</div>'; return; }
+  $('cards').innerHTML = list.map(p => {
+    const [cls, txt] = stateOf(p), pend = p.status === 'pending';
+    const what = p.action === 'BUY' ? `Buy ${eur(p.amount_eur, 0)}` : `Sell ${Number(p.shares).toFixed(4)} sh`;
+    const ops = p.debate ? scoreBars(p.debate.opinions) : '';
+    const btns = pend ? `<button class="go" data-a="approve" data-id="${esc(p.id)}" ${canDecide ? '' : 'disabled'}>${decisions[p.id] === 'approve' ? 'Undo approve' : 'Approve'}</button><button data-a="reject" data-id="${esc(p.id)}" ${canDecide ? '' : 'disabled'}>${decisions[p.id] === 'reject' ? 'Undo pass' : 'Pass'}</button>` : '';
+    return `<article class="card${selected === p.id ? ' sel' : ''}">
+      <div class="ch"><div><h3>${esc(p.name)}</h3><small>${esc(p.ticker)} · ${esc(p.sector || '')}</small></div><span class="stamp ${vClass(p.verdict)}">${esc(p.verdict)}</span></div>
+      <div class="ch"><span class="amt">${what}</span><span class="meta">@ ~${eur(p.price_eur)}</span></div>
+      ${ops}
+      <div class="meta">Score ${p.score >= 0 ? '+' : ''}${Number(p.score).toFixed(2)} · conviction ${esc(p.conviction)} · ${esc(p.id)}</div>
+      <span class="chip ${cls}">${txt}</span>
+      <div class="btns"><button data-a="watch" data-id="${esc(p.id)}">Watch debate</button>${btns}</div>
+    </article>`;
+  }).join('');
+}
+
+function messages(d) {
+  const M = [];
+  M.push({round: 'Round 1 · Opening statements'});
+  d.opinions.forEach(o => M.push({who: o.persona, head: `${o.persona}, ${o.role} · ${o.stance} (${o.score >= 0 ? '+' : ''}${o.score.toFixed(2)})`,
+    pts: o.points.map(p => ({t: p.text, w: p.weight}))}));
+  M.push({round: 'Round 2 · Bull vs. Bear'});
+  d.debate.forEach(x => { const n = x.who.split(' ')[0]; M.push({who: n, head: x.who, text: x.said, right: n === 'Bea'}); });
+  M.push({round: 'Round 3 · Risk review'});
+  M.push({who: 'Rita', head: 'Rita, Risk Manager', list: d.risk});
+  M.push({round: "Round 4 · Chair's verdict"});
+  M.push({who: 'Clara', head: `Clara, Chair · ${d.verdict}`, list: d.chair, verdict: true});
+  return M;
+}
+function msgHTML(m) {
+  if (m.round) return `<div class="rnd">${esc(m.round)}</div>`;
+  let body = '';
+  if (m.pts) body = `<ul>${m.pts.map(p => `<li class="${p.w > 0 ? 'pos' : p.w < 0 ? 'neg' : ''}"><span style="color:var(--ink)">${esc(p.t)}</span></li>`).join('')}</ul>`;
+  if (m.text) body = `<div>${esc(m.text)}</div>`;
+  if (m.list) body = m.list.map(t => `<div>${esc(t)}</div>`).join('');
+  return `<div class="msg${m.right ? ' r' : ''}">${avatar(m.who)}<div class="bub${m.verdict ? ' verdict' : ''}"><b>${esc(m.head)}</b>${body}</div></div>`;
+}
+function showDebate(id, animate) {
+  const p = D.proposals.find(x => x.id === id); if (!p || !p.debate) return;
+  selected = id; clearInterval(timer);
+  $('roomTitle').textContent = `The committee room · ${p.name}`;
+  $('roomSub').textContent = `${p.debate.date} · ${p.ticker} · price ~${eur(p.debate.price_eur)}`;
+  const M = messages(p.debate), chat = $('chat');
+  $('cast').innerHTML = p.debate.opinions.map(o => `<div class="cast">${avatar(o.persona)}<div><b>${esc(o.persona)}</b><small>${esc(CAST[o.persona]?.role || o.role)}</small></div><span class="${o.score >= 0 ? 'pos' : 'neg'}" style="font-weight:800">${o.score >= 0 ? '+' : ''}${o.score.toFixed(2)}</span></div>`).join('')
+    + ['Ben', 'Bea', 'Clara'].map(n => `<div class="cast">${avatar(n)}<div><b>${n}</b><small>${CAST[n].role}</small></div><span></span></div>`).join('');
+  if (!animate) { chat.innerHTML = M.map(msgHTML).join(''); chat.scrollTop = 0; renderCards(); return; }
+  chat.innerHTML = ''; let i = 0;
+  timer = setInterval(() => { chat.insertAdjacentHTML('beforeend', msgHTML(M[i++])); chat.scrollTop = chat.scrollHeight; if (i >= M.length) clearInterval(timer); }, 900);
+  renderCards();
+}
+
+function renderTeam() {
+  if (!D.positions.length) { $('holdings').innerHTML = '<div class="empty">No players on the field yet. Approve a proposal and it joins the team on the next run.</div>'; }
+  else $('holdings').innerHTML = D.positions.map(p => {
+    const s = p.spark, lo = Math.min(...s), hi = Math.max(...s), W = 120, H = 34;
+    const path = s.map((v, i) => `${i ? 'L' : 'M'}${(i / (s.length - 1 || 1) * W).toFixed(1)},${(H - (v - lo) / ((hi - lo) || 1) * H).toFixed(1)}`).join('');
+    return `<div class="card" style="margin-bottom:10px"><div class="ch"><div><h3>${esc(p.name)}</h3><small>${esc(p.ticker)} · ${(p.weight * 100).toFixed(1)}% of portfolio · since ${esc(p.opened)}</small></div>
+      <svg width="${W}" height="${H}" aria-hidden="true"><path d="${path}" fill="none" stroke="${p.pnl >= 0 ? 'var(--up)' : 'var(--dn)'}" stroke-width="2"/></svg></div>
+      <div class="ch"><span class="amt" style="font-size:22px">${eur(p.value)}</span><span class="${p.pnl >= 0 ? 'pos' : 'neg'}" style="font-weight:800">${sgn(p.pnl)} (${pct(p.pnl_pct)})</span></div></div>`;
+  }).join('');
+  const R = D.ranking.slice(0, 12), mx = Math.max(0.4, ...R.map(r => Math.abs(r.score)));
+  $('ranking').innerHTML = R.length ? R.map(r => {
+    const w = Math.abs(r.score) / mx * 50, col = r.score >= 0 ? 'var(--up)' : 'var(--dn)';
+    return `<div class="rank"><span class="nm" title="${esc(r.name)}">${esc(r.name)}</span><span class="t"><i style="${r.score >= 0 ? 'left:50%' : 'right:50%'};width:${w}%;background:${col}"></i></span><span class="sc">${r.score >= 0 ? '+' : '−'}${Math.abs(r.score).toFixed(2)}</span></div>`;
+  }).join('') : '<div class="empty">The scouting board fills after the next scan.</div>';
+}
+
+function trophies() {
+  const s = D.summary, tx = D.transactions, buys = tx.filter(t => t.type === 'BUY').length, sells = tx.filter(t => t.type === 'SELL').length;
+  const decided = D.proposals.filter(p => p.status === 'executed' || p.status === 'rejected').length + Object.keys(decisions).filter(id => D.proposals.find(p => p.id === id && p.status === 'pending')).length;
+  const sectors = new Set(D.positions.map(p => p.sector)).size, has = D.positions.length > 0;
+  return [
+    ['Seed money', 'Fund the account', s.invested > 0, '#ffc83d'],
+    ['First trade', 'Execute a first order', buys > 0, '#2340ff'],
+    ['Team boss', 'Make 6 decisions', decided >= 6, '#7c4dff'],
+    ['Diversified', 'Hold 5 different sectors', sectors >= 5, '#0f9bd7'],
+    ['In the green', 'Total return above zero', has && s.value > s.invested, '#0b8a4c'],
+    ['Market beater', 'Ahead of the MSCI World', has && s.bench_value && s.value > s.bench_value, '#ff5a36'],
+    ['Cool head', 'Sell on the committee’s advice', sells > 0, '#d42330'],
+    ['Season one', 'Close a first month', D.reports.length > 0, '#12151b']
+  ];
+}
+
+function renderXP(T) {
+  const s = D.summary, tx = D.transactions.filter(t => t.type !== 'DEPOSIT').length;
+  const won = T.filter(t => t[2]).length, decided = Object.keys(decisions).length;
+  const xp = Math.round(tx * 40 + decided * 10 + Math.max(0, s.value - s.invested) * 2 + Math.max(0, s.value - (s.bench_value || s.value)) * 3 + won * 100);
+  const names = ['Intern', 'Analyst', 'Associate', 'Vice President', 'Director', 'Partner', 'Legend'];
+  const lvl = Math.min(names.length, Math.floor(xp / 300) + 1), into = xp - (lvl - 1) * 300;
+  $('lvlN').textContent = lvl; $('lvlName').textContent = names[lvl - 1];
+  $('xpBar').style.width = Math.min(100, into / 3) + '%'; $('xpTxt').textContent = `${xp} XP · ${300 - into} to next level`;
+}
+
+function renderBadges() {
+  const T = trophies();
+  $('trophySub').textContent = `${T.filter(t => t[2]).length} of ${T.length} unlocked. Each one is worth 100 XP.`;
+  $('badges').innerHTML = T.map(([n, d, on, c]) => `<div class="badge${on ? '' : ' off'}"><svg width="38" height="38" viewBox="0 0 38 38" aria-hidden="true"><path d="M19 2 L34 10 V24 L19 36 L4 24 V10Z" fill="${c}"/><path d="M19 10 L21.5 16 L28 16.5 L23 20.5 L24.5 27 L19 23.5 L13.5 27 L15 20.5 L10 16.5 L16.5 16Z" fill="#fff"/></svg><div><b>${n}</b><small>${on ? 'Unlocked · ' : ''}${d}</small></div></div>`).join('');
+  renderXP(T);
+}
+
+function renderLog() {
+  const T = D.transactions;
+  $('log').innerHTML = '<thead><tr><th>Date</th><th>Action</th><th>Stock</th><th class="n">Shares</th><th class="n">Price</th><th class="n">Amount</th><th class="n">Realised</th></tr></thead><tbody>' +
+    T.map(t => `<tr><td>${esc(t.date.slice(0, 10))}</td><td>${esc(t.type)}</td><td>${esc(t.ticker || '')}</td><td class="n">${t.shares ? Number(t.shares).toFixed(4) : ''}</td><td class="n">${t.price_eur ? eur(t.price_eur) : ''}</td><td class="n">${eur(t.amount_eur)}</td><td class="n ${t.realized_pnl > 0 ? 'pos' : t.realized_pnl < 0 ? 'neg' : ''}">${t.realized_pnl != null ? sgn(t.realized_pnl) : ''}</td></tr>`).join('') + '</tbody>';
+  $('foot').textContent = `Prices as of ${D.generated.replace('T', ' ')}. ${D.fx_note} Paper money under Trade Republic rules (€1 per order, fractional shares, no taxes). A rules-based simulation, not financial advice.`;
+}
+
+async function decide(id, a) {
+  if (!db) return;
+  const cur = decisions[id], ref = db.doc('decisions/' + id);
+  try {
+    if (cur === a) { await ref.delete(); delete decisions[id]; }
+    else { await ref.set({decision: a, at: new Date().toISOString()}); decisions[id] = a; }
+  } catch (e) { $('dbNote').textContent = 'Could not save that decision (' + (e?.code || 'error') + '). Tell Claude in chat instead.'; }
+  renderCards(); renderBadges();
+}
+
+document.addEventListener('click', e => {
+  const b = e.target.closest('button[data-a]'); if (!b) return;
+  const id = b.dataset.id, a = b.dataset.a;
+  if (a === 'watch') { showDebate(id, true); $('chat').scrollIntoView({behavior: 'smooth', block: 'center'}); }
+  else decide(id, a);
+});
+$('replay').onclick = () => selected && showDebate(selected, true);
+$('skip').onclick = () => selected && showDebate(selected, false);
+
+async function connect() {
+  $('dbNote').textContent = 'Connecting so your decisions can be saved…';
+  const [dbx, user] = await Promise.all([window.claude?.use?.('db'), window.claude?.use?.('user')]).catch(() => [null, null]);
+  db = dbx;
+  if (!db) { $('dbNote').textContent = 'Decisions can be saved when this page is opened on claude.ai while signed in. You can also tell Claude in chat, e.g. "approve P001".'; return; }
+  canDecide = user ? ((await user.canEdit()) ?? true) : true;
+  $('dbNote').textContent = canDecide ? 'Your calls are saved instantly. Claude executes approved trades at the live price on the next run.' : 'You can watch, but only the owner of this arena can make decisions.';
+  const timeout = setTimeout(() => { $('dbNote').textContent = 'Saved decisions are taking long to load; you can still decide.'; }, 10000);
+  db.collection('decisions').onSnapshot(snap => {
+    clearTimeout(timeout);
+    decisions = {};
+    snap.docs.forEach(d => { const v = d.data()?.decision; if (v === 'approve' || v === 'reject') decisions[d.id] = v; });
+    renderCards(); renderBadges();
+  }, err => { clearTimeout(timeout); $('dbNote').textContent = 'Could not load saved decisions (' + (err?.code || 'error') + ').'; });
+  renderCards();
+}
+
+fetch('data.json').then(r => r.json()).then(data => {
+  D = data;
+  renderHero(); renderCards(); renderTeam(); renderBadges(); renderLog();
+  const first = D.proposals.find(p => p.status === 'pending' && p.debate) || D.proposals.find(p => p.debate);
+  if (first) showDebate(first.id, false);
+  connect();
+}).catch(() => { $('moveSub').textContent = 'Could not load the arena data.'; });
+}
+</script>

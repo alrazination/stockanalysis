@@ -81,6 +81,7 @@ def main(argv: list[str] | None = None) -> int:
     rp = sub.add_parser("report", help="write the monthly report")
     rp.add_argument("--month", help="YYYY-MM (default: current month)")
     sub.add_parser("universe", help="list tradable stocks")
+    sub.add_parser("export", help="write web/data.json for the Trading Arena page")
     args = ap.parse_args(argv)
 
     pf = P.load()
@@ -175,6 +176,12 @@ def main(argv: list[str] | None = None) -> int:
         path = R.monthly(pf, prices, bench, args.month)
         print(path.read_text())
         print(f"(saved to {path.relative_to(R.ROOT)})")
+
+    elif args.cmd == "export":
+        from .export import export
+
+        print(f"Wrote {export().relative_to(R.ROOT)}")
+        return 0
 
     elif args.cmd == "universe":
         for t, n, isin, region in UNIVERSE:

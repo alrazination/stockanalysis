@@ -60,6 +60,20 @@ python -m tradesim universe            # list the stocks the committee can choos
 | `reports/` | monthly performance reports |
 | `tradesim/universe.py` | the stock list (ticker, name, ISIN); add or remove names here |
 
+## Trading Arena (the game view)
+
+`web/index.html` is a game-style page built from `web/data.json`. Write that file with
+`python -m tradesim export`. The page has:
+
+- a **race track**: the committee's portfolio against the MSCI World, placed by % return
+- **decision cards** for every proposal, with each analyst's score and **Approve / Pass** buttons
+- the **committee room**, which replays each debate as a chat between Fiona, Victor, Tara, Sam, Rita, Ben, Bea and Clara
+- your positions with sparklines, the scouting board (today's ranking), **XP and levels**, a trophy cabinet and the trade log
+
+It is published as a private claude.ai artifact. Your Approve and Pass taps are saved in the artifact's
+database, and only you can make them. On the next run, Claude reads them and runs
+`python -m tradesim approve|reject <ids>` at live prices. It then runs `export` and republishes the page.
+
 ## Monthly routine
 
 1. Run `review` and decide on any sells.

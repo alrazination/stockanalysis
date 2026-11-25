@@ -45,6 +45,25 @@ class Decision:
     transcript: str = ""
     extra: dict = field(default_factory=dict)
 
+    def to_dict(self) -> dict:
+        return {
+            "date": dt.date.today().isoformat(),
+            "ticker": self.ticker, "name": self.name, "sector": self.sector,
+            "verdict": self.verdict, "score": round(self.composite, 3), "conviction": self.conviction,
+            "price_eur": round(self.price_eur, 4), "max_weight": round(self.max_weight, 3),
+            "opinions": [
+                {
+                    "role": o.role, "persona": o.persona, "score": round(o.score, 3), "stance": o.stance,
+                    "coverage": round(o.coverage, 2),
+                    "points": [{"text": p.text, "weight": p.weight} for p in o.points],
+                }
+                for o in self.opinions
+            ],
+            "debate": [{"who": w, "said": s} for w, s in self.debate],
+            "risk": self.risk_notes,
+            "chair": self.chair_notes,
+        }
+
     @property
     def wants_buy(self) -> bool:
         return self.verdict in ("BUY", "STRONG BUY") and not self.held

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import datetime as dt
+import json
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -15,6 +16,7 @@ from .universe import BENCHMARK, UNIVERSE, lookup
 
 ROOT = Path(__file__).resolve().parent.parent
 DISCUSSIONS = ROOT / "discussions"
+RANKING = ROOT / "data" / "ranking.json"
 
 CASH_RESERVE = 0.05  # keep 5% in cash
 MAX_PER_SECTOR_NEW = 1  # spread each round of buys across sectors
@@ -81,6 +83,7 @@ def write_transcript(d: committee.Decision) -> str:
     folder.mkdir(parents=True, exist_ok=True)
     path = folder / f"{d.ticker.replace('.', '_')}.md"
     path.write_text(d.transcript)
+    path.with_suffix(".json").write_text(json.dumps(d.to_dict(), ensure_ascii=False, indent=1))
     return str(path.relative_to(ROOT))
 
 
@@ -137,6 +140,10 @@ def scan(pf: dict, max_new: int = 6, write_top: int = 8, progress=print) -> tupl
         sector_w[d.sector] = sector_w.get(d.sector, 0) + amount / total
         per_sector[d.sector] = per_sector.get(d.sector, 0) + 1
 
+    RANKING.write_text(json.dumps(
+        [{"ticker": d.ticker, "name": d.name, "sector": d.sector, "verdict": d.verdict,
+          "score": round(d.composite, 3), "price_eur": round(d.price_eur, 4)} for d in decisions],
+        ensure_ascii=False, indent=1))
     # Also keep transcripts for the next-best names so the reasoning is visible.
     for d in decisions[:write_top]:
         if "file" not in d.extra:

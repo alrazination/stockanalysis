@@ -1,0 +1,168 @@
+{
+ "date": "2026-11-25",
+ "ticker": "TTE.PA",
+ "name": "TotalEnergies",
+ "sector": "Energy",
+ "verdict": "BUY",
+ "score": 0.336,
+ "conviction": "Medium",
+ "price_eur": 77.28,
+ "max_weight": 0.19,
+ "opinions": [
+  {
+   "role": "Fundamental Analyst",
+   "persona": "Fiona",
+   "score": 0.45,
+   "stance": "Bullish",
+   "coverage": 1.0,
+   "points": [
+    {
+     "text": "Revenue is growing 41.1% year over year (strong).",
+     "weight": 1.0
+    },
+    {
+     "text": "Earnings jumped +123% versus a year ago, but that mostly reflects a depressed prior year.",
+     "weight": 0.3
+    },
+    {
+     "text": "Operating margin is 17.0%.",
+     "weight": 0.4
+    },
+    {
+     "text": "Return on equity is 17.8%.",
+     "weight": 0.4
+    },
+    {
+     "text": "Debt/equity is 46% (conservative leverage).",
+     "weight": 0.4
+    },
+    {
+     "text": "Free-cash-flow margin is 6.5% of revenue.",
+     "weight": 0.2
+    }
+   ]
+  },
+  {
+   "role": "Valuation Analyst",
+   "persona": "Victor",
+   "score": 0.65,
+   "stance": "Bullish",
+   "coverage": 0.5,
+   "points": [
+    {
+     "text": "It trades at 7.4x forward earnings.",
+     "weight": 0.7
+    },
+    {
+     "text": "PEG ratio is 0.64 (price paid per unit of growth).",
+     "weight": 0.6
+    }
+   ]
+  },
+  {
+   "role": "Technical Analyst",
+   "persona": "Tara",
+   "score": 0.1,
+   "stance": "Mildly bullish",
+   "coverage": 1.0,
+   "points": [
+    {
+     "text": "Price is 3.7% above its 200-day average: the long-term trend is up.",
+     "weight": 0.6
+    },
+    {
+     "text": "The 50-day average is above the 200-day average (bullish alignment).",
+     "weight": 0.4
+    },
+    {
+     "text": "RSI(14) is 38: sellers in control.",
+     "weight": -0.2
+    },
+    {
+     "text": "MACD is negative and falling: momentum is deteriorating.",
+     "weight": -0.3
+    },
+    {
+     "text": "It is 9.5% below its 52-week high.",
+     "weight": 0.0
+    }
+   ]
+  },
+  {
+   "role": "Sentiment & Momentum Analyst",
+   "persona": "Sam",
+   "score": 0.2,
+   "stance": "Mildly bullish",
+   "coverage": 1.0,
+   "points": [
+    {
+     "text": "22 Wall Street analysts rate it 1.8/5 on average (buy).",
+     "weight": 0.3
+    },
+    {
+     "text": "The average analyst price target implies 19.1% upside.",
+     "weight": 0.3
+    },
+    {
+     "text": "Over 6 months it returned +3.3% versus -1.7% for the MSCI World benchmark.",
+     "weight": 0.2
+    },
+    {
+     "text": "Last month: -6.9%.",
+     "weight": 0.0
+    }
+   ]
+  },
+  {
+   "role": "Risk Manager",
+   "persona": "Rita",
+   "score": 0.125,
+   "stance": "Mildly bullish",
+   "coverage": 1.0,
+   "points": [
+    {
+     "text": "Annualised volatility is 24%.",
+     "weight": 0.1
+    },
+    {
+     "text": "Worst peak-to-trough fall in the past year: 17.5%.",
+     "weight": 0.0
+    },
+    {
+     "text": "Beta of 0.04: defensive, moves less than the market.",
+     "weight": 0.2
+    },
+    {
+     "text": "No exposure to Energy yet — this would diversify the portfolio.",
+     "weight": 0.2
+    }
+   ]
+  }
+ ],
+ "debate": [
+  {
+   "who": "Ben (Bull)",
+   "said": "Here is the case for owning TotalEnergies. Revenue is growing 41.1% year over year (strong). It trades at 7.4x forward earnings. PEG ratio is 0.64 (price paid per unit of growth)."
+  },
+  {
+   "who": "Bea (Bear)",
+   "said": "I'm not convinced. MACD is negative and falling: momentum is deteriorating. RSI(14) is 38: sellers in control."
+  },
+  {
+   "who": "Ben (Bull), rebuttal",
+   "said": "Price action is noise over a few weeks; the business is what we own — revenue is growing 41.1% year over year (strong). Weakness can be an entry point."
+  },
+  {
+   "who": "Bea (Bear), rebuttal",
+   "said": "I'll concede that one."
+  }
+ ],
+ "risk": [
+  "Maximum position size: 19% of the portfolio (scaled for 24% volatility).",
+  "Every order costs a €1 fee, like on Trade Republic. Stop-loss rule: review at -15% from cost."
+ ],
+ "chair": [
+  "Weighted committee score is +0.34 on a scale of -1 to +1; 5 of 5 analysts lean the same way. Conviction: Medium.",
+  "Decision: BUY. We propose a position of up to 19% of the portfolio."
+ ]
+}
